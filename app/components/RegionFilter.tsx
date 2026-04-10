@@ -17,7 +17,7 @@ export default function RegionFilter() {
     } else {
       params.delete('region')
     }
-    router.push(`/?${params.toString()}`)
+    router.replace(`/?${params.toString()}`)
   }
 
   return (

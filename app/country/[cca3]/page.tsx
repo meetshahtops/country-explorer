@@ -1,10 +1,25 @@
 // app/country/[cca3]/page.tsx
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Navbar from '@/app/components/Navbar'
 import Footer from '@/app/components/Footer'
 import BackButton from '@/app/components/BackButton'
 import { getCountry } from '@/lib/countries'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ cca3: string }>
+}): Promise<Metadata> {
+  const { cca3 } = await params
+  const country = await getCountry(cca3)
+  if (!country) return { title: 'Country Not Found' }
+  return {
+    title: `${country.name.common} — Country Explorer`,
+    description: `Explore ${country.name.common}: capital, population, languages, currency, and more.`,
+  }
+}
 
 export default async function CountryDetailPage({
   params,
@@ -148,7 +163,7 @@ export default async function CountryDetailPage({
                       <div className="text-right">
                         <div className="text-on-surface font-semibold">{currency.name}</div>
                         <div className="text-sm text-primary font-mono tracking-tighter">
-                          {currencyCode} ({currency.symbol})
+                          {currencyCode}{currency.symbol ? ` (${currency.symbol})` : ''}
                         </div>
                       </div>
                     </div>

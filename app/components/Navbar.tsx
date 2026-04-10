@@ -13,14 +13,7 @@ export default function Navbar() {
             Discover
           </Link>
         </div>
-        <div className="flex items-center gap-4">
-          <button
-            aria-label="Toggle dark mode"
-            className="p-2 rounded-full hover:bg-surface-container/50 transition-all duration-300 scale-95 active:scale-90"
-          >
-            <span className="material-symbols-outlined text-primary">dark_mode</span>
-          </button>
-        </div>
+        <div className="flex items-center gap-4" />
       </div>
     </nav>
   )

@@ -13,7 +13,7 @@ export type Country = {
   subregion?: string
   population: number
   languages?: Record<string, string>
-  currencies?: Record<string, { name: string; symbol: string }>
+  currencies?: Record<string, { name: string; symbol?: string }>
   maps?: { googleMaps: string }
 }
 
@@ -21,7 +21,7 @@ const FIELDS = 'cca3,name,flags,capital,region,subregion,population,languages,cu
 const BASE = 'https://restcountries.com/v3.1'
 
 async function fetchCountries(url: string): Promise<Country[]> {
-  const res = await fetch(`${url}?fields=${FIELDS}`)
+  const res = await fetch(`${url}?fields=${FIELDS}`, { cache: 'no-store' })
   if (res.status === 404) return []
   if (!res.ok) throw new Error(`Failed to fetch countries: ${res.status}`)
   return res.json()
@@ -50,7 +50,7 @@ export async function getCountries({
 }
 
 export async function getCountry(cca3: string): Promise<Country | null> {
-  const res = await fetch(`${BASE}/alpha/${cca3}?fields=${FIELDS}`)
+  const res = await fetch(`${BASE}/alpha/${cca3}?fields=${FIELDS}`, { cache: 'no-store' })
   if (res.status === 404) return null
   if (!res.ok) throw new Error(`Failed to fetch country: ${res.status}`)
   const data = await res.json()

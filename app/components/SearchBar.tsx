@@ -1,13 +1,14 @@
 // app/components/SearchBar.tsx
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function SearchBar() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [value, setValue] = useState(searchParams.get('search') ?? '')
+  const isMounted = useRef(false)
 
   useEffect(() => {
     setValue(searchParams.get('search') ?? '')
@@ -27,6 +28,10 @@ export default function SearchBar() {
   )
 
   useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true
+      return
+    }
     const timer = setTimeout(() => {
       pushSearch(value)
     }, 300)

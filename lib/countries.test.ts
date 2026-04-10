@@ -4,6 +4,7 @@ import { getCountries, getCountry } from './countries'
 
 const FIELDS = 'cca3,name,flags,capital,region,subregion,population,languages,currencies,maps'
 const BASE = 'https://restcountries.com/v3.1'
+const FETCH_OPTS = { cache: 'no-store' }
 
 function mockOkResponse(data: unknown) {
   return {
@@ -32,19 +33,19 @@ describe('getCountries', () => {
   it('fetches /all when no params given', async () => {
     vi.mocked(fetch).mockResolvedValueOnce(mockOkResponse([]))
     await getCountries()
-    expect(fetch).toHaveBeenCalledWith(`${BASE}/all?fields=${FIELDS}`)
+    expect(fetch).toHaveBeenCalledWith(`${BASE}/all?fields=${FIELDS}`, FETCH_OPTS)
   })
 
   it('fetches /region/{region} when only region given', async () => {
     vi.mocked(fetch).mockResolvedValueOnce(mockOkResponse([]))
     await getCountries({ region: 'Europe' })
-    expect(fetch).toHaveBeenCalledWith(`${BASE}/region/Europe?fields=${FIELDS}`)
+    expect(fetch).toHaveBeenCalledWith(`${BASE}/region/Europe?fields=${FIELDS}`, FETCH_OPTS)
   })
 
   it('fetches /name/{search} when only search given', async () => {
     vi.mocked(fetch).mockResolvedValueOnce(mockOkResponse([]))
     await getCountries({ search: 'germany' })
-    expect(fetch).toHaveBeenCalledWith(`${BASE}/name/germany?fields=${FIELDS}`)
+    expect(fetch).toHaveBeenCalledWith(`${BASE}/name/germany?fields=${FIELDS}`, FETCH_OPTS)
   })
 
   it('fetches /name/{search} and filters by region when both given', async () => {
@@ -55,7 +56,7 @@ describe('getCountries', () => {
       ])
     )
     const result = await getCountries({ search: 'ge', region: 'Europe' })
-    expect(fetch).toHaveBeenCalledWith(`${BASE}/name/ge?fields=${FIELDS}`)
+    expect(fetch).toHaveBeenCalledWith(`${BASE}/name/ge?fields=${FIELDS}`, FETCH_OPTS)
     expect(result).toHaveLength(1)
     expect(result[0].cca3).toBe('DEU')
   })
@@ -64,6 +65,12 @@ describe('getCountries', () => {
     vi.mocked(fetch).mockResolvedValueOnce(mock404Response())
     const result = await getCountries({ search: 'xyznonexistent' })
     expect(result).toEqual([])
+  })
+
+  it('URL-encodes multi-word search terms', async () => {
+    vi.mocked(fetch).mockResolvedValueOnce(mockOkResponse([]))
+    await getCountries({ search: 'united states' })
+    expect(fetch).toHaveBeenCalledWith(`${BASE}/name/united%20states?fields=${FIELDS}`, FETCH_OPTS)
   })
 
   it('throws on non-404 error responses', async () => {
@@ -89,7 +96,7 @@ describe('getCountry', () => {
       mockOkResponse({ cca3: 'DEU', name: { common: 'Germany' } })
     )
     const country = await getCountry('DEU')
-    expect(fetch).toHaveBeenCalledWith(`${BASE}/alpha/DEU?fields=${FIELDS}`)
+    expect(fetch).toHaveBeenCalledWith(`${BASE}/alpha/DEU?fields=${FIELDS}`, FETCH_OPTS)
     expect(country?.cca3).toBe('DEU')
   })
 

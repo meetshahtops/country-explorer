@@ -30,10 +30,10 @@ export default async function HomePage({
             </h1>
           </div>
           <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center">
-            <Suspense>
+            <Suspense fallback={<div className="w-full lg:max-w-2xl h-16 rounded-xl bg-surface-container-lowest animate-pulse" />}>
               <SearchBar />
             </Suspense>
-            <Suspense>
+            <Suspense fallback={<div className="h-16 w-48 rounded-full bg-surface-container-high animate-pulse" />}>
               <RegionFilter />
             </Suspense>
           </div>
