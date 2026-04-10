@@ -1,11 +1,11 @@
-// app/error.tsx
 'use client'
 
 export default function Error({
-  reset,
+  error,
+  unstable_retry,
 }: {
   error: Error & { digest?: string }
-  reset: () => void
+  unstable_retry: () => void
 }) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-6 px-6">
@@ -17,7 +17,7 @@ export default function Error({
         There was a problem connecting to the data source. Please try again.
       </p>
       <button
-        onClick={reset}
+        onClick={unstable_retry}
         className="px-8 py-4 hero-gradient text-on-primary-fixed font-bold rounded-xl transition-all duration-300 hover:scale-105"
       >
         Try Again
