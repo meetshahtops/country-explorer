@@ -21,7 +21,7 @@ export default function SearchBar() {
       } else {
         params.delete('search')
       }
-      router.push(`/?${params.toString()}`)
+      router.replace(`/?${params.toString()}`)
     },
     [router, searchParams]
   )
