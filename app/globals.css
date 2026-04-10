@@ -1,26 +1,66 @@
+/* app/globals.css */
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Surface hierarchy */
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+  --color-surface-bright: #31394d;
+  --color-surface: #0b1326;
+  --color-surface-variant: #2d3449;
+  --color-surface-dim: #0b1326;
+
+  /* Brand */
+  --color-primary: #4cd6ff;
+  --color-primary-container: #009dc1;
+  --color-primary-fixed: #b7eaff;
+  --color-primary-fixed-dim: #4cd6ff;
+  --color-tertiary: #ffb695;
+  --color-tertiary-container: #ef6719;
+  --color-secondary: #b5c8df;
+  --color-secondary-container: #36485b;
+
+  /* On-colours */
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #c1c6d7;
+  --color-on-primary: #003543;
+  --color-on-primary-fixed: #001f28;
+  --color-on-primary-container: #002e3a;
+  --color-on-secondary-container: #a4b7cd;
+  --color-on-tertiary-container: #4c1a00;
+
+  /* Structure */
+  --color-outline: #8b90a0;
+  --color-outline-variant: #414754;
+  --color-background: #0b1326;
+  --color-on-background: #dae2fd;
+
+  /* Typography */
+  --font-headline: var(--font-manrope);
+  --font-body: var(--font-inter);
+  --font-label: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: #060e20;
+    color: #dae2fd;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass-effect {
+    background: rgba(45, 52, 73, 0.6);
+    backdrop-filter: blur(12px);
+  }
+  .hero-gradient {
+    background: linear-gradient(135deg, #4cd6ff 0%, #009dc1 100%);
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
 }
