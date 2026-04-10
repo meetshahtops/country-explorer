@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "inverse-surface": "#dae2fd",
+                    "on-background": "#dae2fd",
+                    "surface-container-low": "#131b2e",
+                    "surface-variant": "#2d3449",
+                    "on-surface": "#dae2fd",
+                    "secondary-fixed": "#d1e4fb",
+                    "secondary": "#b5c8df",
+                    "primary-container": "#009dc1",
+                    "primary": "#4cd6ff",
+                    "tertiary": "#ffb695",
+                    "outline-variant": "#414754",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-primary-fixed-variant": "#004e60",
+                    "surface": "#0b1326",
+                    "surface-container-high": "#222a3d",
+                    "on-tertiary-fixed": "#351000",
+                    "inverse-on-surface": "#283044",
+                    "error-container": "#93000a",
+                    "secondary-fixed-dim": "#b5c8df",
+                    "surface-container": "#171f33",
+                    "on-secondary": "#203243",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "outline": "#8b90a0",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "on-tertiary": "#571e00",
+                    "primary-fixed-dim": "#4cd6ff",
+                    "surface-tint": "#4cd6ff",
+                    "surface-bright": "#31394d",
+                    "inverse-primary": "#00677f",
+                    "on-surface-variant": "#c1c6d7",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#ef6719",
+                    "on-tertiary-container": "#4c1a00",
+                    "on-secondary-container": "#a4b7cd",
+                    "on-primary-container": "#002e3a",
+                    "primary-fixed": "#b7eaff",
+                    "surface-container-highest": "#2d3449",
+                    "background": "#0b1326",
+                    "surface-container-lowest": "#060e20",
+                    "secondary-container": "#36485b",
+                    "surface-dim": "#0b1326",
+                    "on-primary": "#003543",
+                    "on-primary-fixed": "#001f28",
+                    "on-secondary-fixed": "#091d2e",
+                    "on-secondary-fixed-variant": "#36485b",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        background: rgba(45, 52, 73, 0.6);
+        backdrop-filter: blur(12px);
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #4cd6ff 0%, #009dc1 100%);
+      }
+    </style>
+</head>
+<body class="bg-surface-container-lowest font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#060e20]/80 backdrop-blur-xl shadow-[0px_20px_40px_rgba(6,14,32,0.4)]">
+<div class="flex items-center justify-between px-8 py-4 w-full max-w-screen-2xl mx-auto font-['Manrope'] antialiased">
+<div class="text-2xl font-bold tracking-tight text-[#4cd6ff]">Country Explorer</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#4cd6ff] border-b-2 border-[#4cd6ff] pb-1" href="#">Discover</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-[#171f33]/50 transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined text-[#4cd6ff]">dark_mode</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20 px-6 max-w-screen-2xl mx-auto">
+<!-- Hero Search & Filter Section -->
+<section class="mb-16 mt-12">
+<div class="flex flex-col space-y-2 mb-12">
+<span class="text-tertiary label-md uppercase tracking-widest font-semibold">Curation</span>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-tight">
+                    Explore the <br/><span class="text-primary">Global</span> Archive.
+                </h1>
+</div>
+<div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center">
+<div class="relative w-full lg:max-w-2xl group">
+<div class="absolute inset-y-0 left-5 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/15 text-on-surface-variant py-5 pl-14 pr-6 rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-outline" placeholder="Search for a country, capital, or region..." type="text"/>
+</div>
+<div class="relative group">
+<select class="appearance-none bg-surface-container-high border border-outline-variant/15 text-on-surface py-5 px-8 pr-16 rounded-full focus:ring-4 focus:ring-primary/20 transition-all duration-300 cursor-pointer">
+<option>All Regions</option>
+<option>Africa</option>
+<option>Americas</option>
+<option>Asia</option>
+<option>Europe</option>
+<option>Oceania</option>
+</select>
+<div class="absolute inset-y-0 right-6 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Country Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<!-- Card 1: Norway -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 hover:bg-surface-bright shadow-lg">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Flag of Norway" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Graphic representation of the Norwegian flag with its distinct red field and white-fimbriated indigo blue Nordic cross" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg9UDn1NQhTNhVEHnXdijIuWMEEwU4L1W8EiCyFiivR3QLJ3uwHD-TyYwUiKiR8xjaNAjDJMqnuPDd3HLtNY-PDwrg26U9_-OWGvCLTR09ehcy7-xIvzL1mNXxYlk7MFqf0Zz-7QwXcs_rHNMfMzrjtIaJJgEp8EK_-b1XB77vUQe0xq7Fq5Z492C2vspn2YPN9n8XAxyfxigdxOq62yXj7FmzH_bYQ3YDIKV8YZNhlURAnmnWcLZbLdJ4u29gQM_y24FSD80k1hcd"/>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="text-primary font-semibold text-xs tracking-widest uppercase mb-2 block">Europe</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Norway</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Capital</span>
+<span class="text-on-surface-variant font-medium">Oslo</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Population</span>
+<span class="text-on-surface-variant font-medium">5,379,475</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 rounded-xl hero-gradient text-on-primary-fixed font-bold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 active:scale-90">
+                        View Dossier
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Japan -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 hover:bg-surface-bright shadow-lg">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Flag of Japan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The Japanese flag known as Nisshoki with a prominent crimson-red disc representing the sun at its center on white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk5DTXHzFMaY8TcajmMbYGPc3tUPdfZavXQve3c0yPaQEFUjfMgN6rGOuiTYFCmUWDYl5b-5nPI-7qwiAquEL6eWc3Nhsio8TMS0xeKqTjag0RYgJXfylEcAMWEmyYQ4ILsdTzYAzXqcyiHO8yw2Mst6MSIM0vu2KUqYYTxJKg-4P3p2Z0Bug3RMnnvZdjTvEjDdlxhc5ug_w9EovFEiEDoeEe83kohW5yJuKM_vq7Qh6ScgobcqfrjOQNlsYu05J69IP7vss3BgYh"/>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="text-primary font-semibold text-xs tracking-widest uppercase mb-2 block">Asia</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Japan</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Capital</span>
+<span class="text-on-surface-variant font-medium">Tokyo</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Population</span>
+<span class="text-on-surface-variant font-medium">125,836,021</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 rounded-xl hero-gradient text-on-primary-fixed font-bold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 active:scale-90">
+                        View Dossier
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Brazil -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 hover:bg-surface-bright shadow-lg">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Flag of Brazil" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The Brazilian flag featuring a yellow rhombus on a green field with a blue globe and white stars" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPpF4DE9LDhtBDdXWSEf5OXNTWQTdanFJ85S9uJrYK4b3b7296AZGQ69DkjWEufNdWXOsJb1pEYkg0q6tpmqlP0ePTSf9dDTkYvd2fy0hOW3ji3gfOCfAKnbMHZeYY8sKyB-wgm9BUsWfKs4sTd-P78ND-iyTZ_N0cQGIE7ThU-us_HBAVBE6LhYo7pz9VvIz8IHQmEmz4w8kBPJWzJi27twmIZEzmD81HVASyt3nzevUSBx7f_EYWBGxc-2dAUNokegbYwDEr9JaR"/>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="text-primary font-semibold text-xs tracking-widest uppercase mb-2 block">Americas</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Brazil</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Capital</span>
+<span class="text-on-surface-variant font-medium">Brasília</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Population</span>
+<span class="text-on-surface-variant font-medium">212,559,409</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 rounded-xl hero-gradient text-on-primary-fixed font-bold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 active:scale-90">
+                        View Dossier
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Kenya -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 hover:bg-surface-bright shadow-lg">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Flag of Kenya" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The Kenyan flag with black, red, green horizontal stripes separated by white and a Maasai shield with spears" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTOo9lb7N6LYGFsQz45o47mVX3zZenHEXgC0udKPW9FIOUfQaL-ke8WoFTtP2vc8V27j8DPHl4PqNkZxDVmQruXswrPg2ybdGMNaU7XsxekMn6xBFE_2LR6Y4tVfC_4CnafhG9XjXN0vulU3NayZsd53Zgojh-tuNRptgyMUHYDyjRuuDi40Lv6sCZr8tpqzdZsbplfal4xtqHU0BIKArIeDjDKbdXZSxwEXBePfF3kzoD4Zs10UNE-gt0yXz8dt0p6fhwoyvl9qvq"/>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="text-primary font-semibold text-xs tracking-widest uppercase mb-2 block">Africa</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Kenya</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Capital</span>
+<span class="text-on-surface-variant font-medium">Nairobi</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Population</span>
+<span class="text-on-surface-variant font-medium">53,771,300</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 rounded-xl hero-gradient text-on-primary-fixed font-bold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 active:scale-90">
+                        View Dossier
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 5: Australia -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 hover:bg-surface-bright shadow-lg">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Flag of Australia" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The Australian flag with a blue field, Union Jack, Southern Cross stars, and the large seven-pointed Commonwealth Star" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAHgnag089YcTbcFI3LYh8-6mlm-HRqeVk3LnZ98Z1kZgxEy5vYoi3ShO4EJkpBhb1i8YMJX_R064NidVfcygctX-HRE5_Cn5zH42UI2N0d7JwrbRC9NTOPkdbqYJSSThDDOZZGOMnveOMsgvyoYsWyuT9yGTxO-pMsdcwMnOM8LY3ApbO3WWFyw_1b1zI17FEbb7rnx1fIJ7L156o7F3wEWVIhIjmwGs60vUNufhKHVB2-BeleQ-DejDfX1lTxkIDFyrjSZmqOCkG"/>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="text-primary font-semibold text-xs tracking-widest uppercase mb-2 block">Oceania</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Australia</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Capital</span>
+<span class="text-on-surface-variant font-medium">Canberra</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Population</span>
+<span class="text-on-surface-variant font-medium">25,687,041</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 rounded-xl hero-gradient text-on-primary-fixed font-bold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 active:scale-90">
+                        View Dossier
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 6: Iceland -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 hover:bg-surface-bright shadow-lg">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Flag of Iceland" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The Icelandic flag featuring a blue field with a red Nordic cross outlined in white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDtEH4CSmBBKAdJf6vxTFpgM2KP7ZLvmplHoALqNcBenAn42IKzvT5_cLRdOzCO0FE6ptTk9gTu3G12snm8cHTvioCA5ABeaHrpyHcEVVJMSPgwpslyoq9CxpdbKejWjm3PeR5QfUYGCVkEPMzIofOW7jOX2vE7nnnehfKSpSaAUfp6fKp8_G5hc-PIxm-cd_wY7RSygFAJRexFJ1fM3uap1OorjBPrw6PGK5jg-3QWmGfP1u4dBTufM_6YKvuq39F4wm7Udst1Rwd"/>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="text-primary font-semibold text-xs tracking-widest uppercase mb-2 block">Europe</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Iceland</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Capital</span>
+<span class="text-on-surface-variant font-medium">Reykjavík</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Population</span>
+<span class="text-on-surface-variant font-medium">366,425</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 rounded-xl hero-gradient text-on-primary-fixed font-bold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 active:scale-90">
+                        View Dossier
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 7: Canada -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 hover:bg-surface-bright shadow-lg">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Flag of Canada" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The Canadian flag with two vertical red bands flanking a central white square containing a stylized red maple leaf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWulorDB2mUeOgT1PWQ314-W-GvkrQcZ8FYcUbyriFKsofclTQUFEclukAuvaB0AQ3-9JTApTZZDRxSAnViGwAt6In46_-ddt8i3i6xQKAx40S4kRBUlxRH36KTbE7elblHdWZwfMXo5Dr64_OSHCnUs2bq5hUkAiMZ1IYVpXeRNOaWjZb0XOQ0tyrtvs5JEEaTtNwQfFYDJ73M0ez-_uaezs4xopbFimejWfvNkeAnkOvQcTNZAWImqCVhQhQnoI1kPQ7-M9Jf2XX"/>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="text-primary font-semibold text-xs tracking-widest uppercase mb-2 block">Americas</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Canada</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Capital</span>
+<span class="text-on-surface-variant font-medium">Ottawa</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Population</span>
+<span class="text-on-surface-variant font-medium">38,005,238</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 rounded-xl hero-gradient text-on-primary-fixed font-bold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 active:scale-90">
+                        View Dossier
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 8: South Africa -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 hover:bg-surface-bright shadow-lg">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Flag of South Africa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The colorful South African flag with a horizontal Y-shape in green with bands of red, blue, black, and gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_D-qGyc8A3pAcqWaSnBQwSsNKsIN2zkvMPlZQmx6wv4U3wrFo2Em3Jf-kimNywm_c6IldI4_63IwHV59cOfhS9BR0B56Z2xT59QjvEHfMQOgkum1kFtM0mHP8p5z7dsEYoikIu14_Vvo76cj36WFGmDcSSrTM72iiO1y5vx5maaee6JAgTnS6MPwOEONa5-VSWc06MwpjmYhAWoyCAhhEmww9bIJ-4TB8m27ikmbP0bPo9xN8prq0GUQCP2BtILqcIEDNsh1qWGwG"/>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="text-primary font-semibold text-xs tracking-widest uppercase mb-2 block">Africa</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">South Africa</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Capital</span>
+<span class="text-on-surface-variant font-medium">Pretoria</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-outline text-xs uppercase tracking-wider font-medium">Population</span>
+<span class="text-on-surface-variant font-medium">59,308,690</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 rounded-xl hero-gradient text-on-primary-fixed font-bold flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 active:scale-90">
+                        View Dossier
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Pagination/Load More (Subtle Tonal Shift) -->
+<div class="mt-20 flex justify-center">
+<button class="px-12 py-5 bg-surface-container-high text-on-surface rounded-full border border-outline-variant/15 hover:bg-surface-bright transition-all duration-300 font-bold tracking-wide scale-95 active:scale-90">
+                Explore More Nations
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-[#2d3449]/15 bg-[#060e20]">
+<div class="flex flex-col md:flex-row items-center justify-between px-8 gap-4 w-full max-w-screen-2xl mx-auto font-['Inter'] text-xs uppercase tracking-widest">
+<span class="text-slate-500 text-center md:text-left">© 2024 The Global Curator. Data sourced from REST Countries.</span>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-slate-500 hover:text-[#4cd6ff] transition-colors opacity-80 hover:opacity-100" href="#">Documentation</a>
+<a class="text-slate-500 hover:text-[#4cd6ff] transition-colors opacity-80 hover:opacity-100" href="#">API</a>
+<a class="text-slate-500 hover:text-[#4cd6ff] transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-[#4cd6ff] transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>
